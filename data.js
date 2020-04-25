@@ -1,4 +1,3 @@
-
 // Variable declaration
 var expArray = new Array();
 const expList = document.querySelector("#expenses-list");
@@ -29,14 +28,15 @@ function addItem() {
  * Displays expenses that are currently in the database
  */
 function displayData() {
-    
+    clearTable();
+
     for (var i = 0; i < expArray.length; i++) {
         var exp = JSON.parse(localStorage.getItem(expArray[i]));
     
         let tr = document.createElement('tr');
-        let name = document.createElement('th');
-        let cost = document.createElement('th');
-        let category = document.createElement('th');
+        let name = document.createElement('td');
+        let cost = document.createElement('td');
+        let category = document.createElement('td');
 
         name.textContent = expArray[i];
         cost.textContent = exp.cost;
@@ -51,11 +51,17 @@ function displayData() {
     }
 }
 
+function clearTable() {
+    while(expList.hasChildNodes())
+        expList.removeChild(expList.firstChild);
+
+}
+
 /**
  * Deletes item from local database given its key value
  */
 function deleteItem() {
-
+    
 }
 
 displayData();
