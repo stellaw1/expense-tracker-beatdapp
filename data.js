@@ -1,6 +1,8 @@
 // Variable declaration
 var expArray = new Array();
 const expList = document.querySelector("#expenses-list");
+var nameDir = "des";
+var costDir = "des";
 
 /**
  * Called on button click. Sends textbox input to local database to be stored. 
@@ -39,7 +41,7 @@ function displayData() {
         let category = document.createElement('td');
 
         name.textContent = expArray[i];
-        cost.textContent = "$" + exp.cost;
+        cost.textContent = exp.cost;
         category.textContent = exp.category;
 
         tr.appendChild(name);
@@ -79,6 +81,177 @@ function deleteItem() {
  */
 function clearDatabase() {
     localStorage.clear();
+}
+
+/**
+ * Function that sorts table by Name. Sorting order is opposite to nameDir
+ */
+function sortTableByName() {
+    
+    var table = document.getElementById("expenses-list");
+    var col = 0;
+    var rows, switching, i, x, y, shouldSwitch;
+
+    switching = true;
+
+    // set nameDir to the opposite of its current order
+    if (nameDir == "des") {
+        nameDir = "asc";
+    } else if (nameDir == "asc") {
+        nameDir = "des";
+    }
+
+    /* Make a loop that will continue until no switching has been done: */
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        /* Loop through all table rows */
+        for (i = 0; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get two elements to compare, one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("td")[col];
+            y = rows[i + 1].getElementsByTagName("td")[col];
+
+            /* Check if the two rows should switch place, based on the direction, asc or desc: */
+            if (nameDir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (nameDir == "des") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        } 
+    }
+}
+
+/**
+ * Function that sorts table by Cost. Sorting order is opposite to costDir
+ */
+function sortTableByCost() {
+    console.log("sort by cost");
+
+    var table = document.getElementById("expenses-list");
+    var col = 1;
+    var rows, switching, i, x, y, shouldSwitch;
+
+    switching = true;
+
+    // set nameDir to the opposite of its current order
+    if (costDir == "des") {
+        costDir = "asc";
+    } else if (costDir == "asc") {
+        costDir = "des";
+    }
+
+    /* Make a loop that will continue until no switching has been done: */
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        /* Loop through all table rows */
+        for (i = 0; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get two elements to compare, one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("td")[col];
+            y = rows[i + 1].getElementsByTagName("td")[col];
+
+            /* Check if the two rows should switch place, based on the direction, asc or desc: */
+            if (costDir == "asc") {
+                if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (costDir == "des") {
+                if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        } 
+    }
+}
+
+/**
+ * Function that sorts table by Name or Cost depending on its input
+ * 
+ * parameter: integer representing type to sort by
+ */
+function sortTable(c) {
+    var table = document.getElementById("expenses-list");
+    var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 0; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("td")[c];
+        y = rows[i + 1].getElementsByTagName("td")[c];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+            }
+        } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+            }
+        }
+        }
+        if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+        } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+        }
+        }
+    }
+
 }
 
 clearDatabase();
