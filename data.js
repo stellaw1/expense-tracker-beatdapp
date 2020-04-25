@@ -6,7 +6,7 @@ const expList = document.querySelector("#expenses-list");
  * Called on button click. Sends textbox input to local database to be stored. 
  */
 function addItem() {
-    var expName = document.getElementById("name").value;
+    var expName = document.getElementById("addName").value;
     var expCost = document.getElementById("cost").value;
     var expCategory = document.getElementById("category").value;
 
@@ -39,7 +39,7 @@ function displayData() {
         let category = document.createElement('td');
 
         name.textContent = expArray[i];
-        cost.textContent = exp.cost;
+        cost.textContent = "$" + exp.cost;
         category.textContent = exp.category;
 
         tr.appendChild(name);
@@ -61,7 +61,22 @@ function clearTable() {
  * Deletes item from local database given its key value
  */
 function deleteItem() {
-    
+    var expName = document.getElementById("deleteName").value;
+
+    localStorage.removeItem(expName);
+
+    const index = expArray.indexOf(expName);
+    if (index > -1) 
+        expArray.splice(index, 1);
+
+    displayData();
+}    
+
+/**
+ * Clear entire database.
+ */
+function clearDatabase() {
+    localStorage.clear();
 }
 
-displayData();
+clearDatabase();

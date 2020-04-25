@@ -7,18 +7,27 @@
 <body>
 <section>
     <h1>My Expense Tracker </h1>
+    <h2>Enter an expense to track: </h2>
     <form id="add-expense">
-        <input type="text" id="name" placeholder="Expense name">
+        <input type="text" id="addName" placeholder="Expense name">
         <input type="text" id="cost" placeholder="Cost">
         <input type="text" id="category" placeholder="Category">
         <button type="button" onclick="addItem();">Add Expense</button>
     </form>
+    <br>
+    <h2>Enter an expense to remove: </h2>
+    <form id="delete-expense">
+        <input type="text" id="deleteName" placeholder="Expense name">
+        <button type="button" onclick="deleteItem();">Delete Expense</button>
+    </form>
+    <br>
+    <h2>Track my expenses: </h2>
     <div class="content">
         <table id="expenses-title">
             <tr>
-                <th><h2>&#10240;Name </h2></th>
-                <th><h2>&#10240;Cost </h2></th>
-                <th><h2>&#10240;Category </h2></th>
+                <th><h3>&#10240;Name </h3></th>
+                <th><h3>&#10240;Cost </h3></th>
+                <th><h3>&#10240;Category </h3></th>
             </tr>
         </table>
         <table id="expenses-list">
