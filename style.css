@@ -11,6 +11,7 @@ body {
     background: #ffffff;
     color: #272525;
     padding-bottom: 20px;
+    font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -22,7 +23,6 @@ h1{
     font-weight: bold;
     font-size: 30px;
     text-decoration: underline;
-    text-align: center;
 }
 
 h4 {
@@ -43,17 +43,9 @@ form {
     margin: auto;
 }
 
-input, select {
-    padding-right: 12px;
-}
-
 table {
     max-width: 900px;
     margin: auto;
-}
-
-tr {
-    font-size: 18px;
 }
 
 td, th {
