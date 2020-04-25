@@ -12,17 +12,33 @@
     <h1>My Expense Tracker </h1>
     <br>
     <h4>Enter an expense to track: </h4>
+
     <form id="add-expense">
-        <input type="text" id="addName" placeholder="Expense name">
-        <input type="text" id="cost" placeholder="Cost">
-        <input type="text" id="category" placeholder="Category">
-        <button type="button" onclick="addItem();">Add Expense</button>
+        <div class="input-group">
+            <input class="form-control" type="text" id="addName" placeholder="Expense name">&nbsp;
+            
+            <input class="form-control" type="text" id="cost" placeholder="Cost">&nbsp;
+        
+            <select class="form-control" id="category">
+                <option>Select an expense category</option>
+                <option>Food</option>
+                <option>Gas</option>
+                <option>Entertainment</option>
+                <option>Utilities</option>
+                <option>Other</option>
+            </select>&nbsp;
+
+            <button class="btn btn-secondary" type="button" onclick="addItem();">Add Expense</button>
+        </div>
     </form>
     <br>
     <h4>Enter an expense to remove: </h4>
     <form id="delete-expense">
-        <input type="text" id="deleteName" placeholder="Expense name">
-        <button type="button" onclick="deleteItem();">Delete Expense</button>
+        <div class="input-group">
+            <input class="form-control" type="text" id="deleteName" placeholder="Expense name">&nbsp;
+            
+            <button class="btn btn-secondary" type="button" onclick="deleteItem();">Delete Expense</button>
+        </div>
     </form>
     <br>
     <h4>Current expenses: </h4>

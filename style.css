@@ -1,43 +1,57 @@
 
 html {
     font-family: sans-serif;
+    width: 80%;
+    margin: auto;
 }
 
 body {
     font-family: sans-serif;
-    background: #CDCDCD;
     background: #ffffff;
-    min-width: 500px;
     color: #272525;
-    padding-left: 10px;
     padding-bottom: 20px;
 }
-
 
 h1, h2, h3, h4, h5, h6{
     line-height: 1.5;
     margin: auto;
-    text-align: center;
-    padding: 0;
 }
 
 h1{
-  font-weight: bold;
-  font-size: 32px;
-  text-decoration: underline;
+    font-weight: bold;
+    font-size: 32px;
+    text-decoration: underline;
+    text-align: center;
 }
 
-h2 {
-    font-size: 20px;
+h4 {
+    padding-left: 110px;
+}
+
+h5 {
+    text-align: center;
+}
+
+div {
+    padding-bottom: 12px;
+}
+
+form {
+    max-width: 900px;
+    margin: auto;
+}
+
+input, select {
+    padding-right: 12px;
 }
 
 table {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
 tr {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 td, th {
