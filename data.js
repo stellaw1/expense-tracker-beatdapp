@@ -1,3 +1,8 @@
+
+// Variable declaration
+var expArray = new Array();
+const expList = document.querySelector("#expenses-list");
+
 /**
  * Called on button click. Sends textbox input to local database to be stored. 
  */
@@ -6,13 +11,29 @@ function addItem() {
     var expCost = document.getElementById("cost").value;
     var expCategory = document.getElementById("category").value;
 
-    localStorage.setItem(expName, expCost);
+    var expValue = {"cost":expCost, "category":expCategory};
+    var dbValue = JSON.stringify(expValue);
+
+    console.log("added " + expName);
+    expArray.push(expName);
+
+    window.localStorage.setItem(expName, dbValue);
 }
 
 /**
- * Displays any data that exists in local database currrently. 
+ * Displays expenses that are currently in the database
  */
 function displayData() {
+    var names = "";
+    
+    for (var i = 0; i < expArray.length; i++) {
+        names += expArray[i];
+        names += "<br>";
+    }
+
+    console.log(names);
+    document.getElementById("expNames").innerHTML = names;
+
 
 }
 
@@ -23,11 +44,4 @@ function deleteItem(expName) {
 
 }
 
-/**
- * Main function that loops while web app is live. 
- */
-function main() {
-    displayData();
-}
-
-main();
+displayData();
