@@ -17,7 +17,7 @@
         <div class="input-group">
             <input class="form-control" type="text" id="addName" placeholder="Expense name">&nbsp;
             
-            <input class="form-control" type="text" id="cost" placeholder="Cost">&nbsp;
+            <input class="form-control" type="number" id="cost" placeholder="Cost">&nbsp;
         
             <select class="form-control" id="category">
                 <option>Select a category</option>
@@ -48,7 +48,7 @@
                 <tr>
                     <th><h5 onclick="sortTableByName()">Name </h5></th>
                     <th><h5 onclick="sortTableByCost()">Cost </h5></th>
-                    <th><h5>Category </h5></th>
+                    <th><h5 onclick="sortTableByCategory()">Category </h5></th>
                 </tr>
             </thead>
         </table>
