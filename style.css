@@ -1,25 +1,28 @@
 
 html {
-    font-family: sans-serif;
     width: 80%;
     margin: auto;
     padding-top: 12px;
+    padding-bottom: 12px;
+    background: #9de3ff;
 }
 
 body {
-    font-family: sans-serif;
-    background: #ffffff;
+    padding-top: 12px;
+    padding-bottom: 12px;
     color: #272525;
     padding-bottom: 20px;
     font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6{
+    font-family: 'Lucida Grande', monospace;
     line-height: 1.5;
     margin: auto;
 }
 
 h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
     font-weight: bold;
     font-size: 30px;
     text-decoration: underline;
@@ -30,6 +33,7 @@ h4 {
 }
 
 h5 {
+    font-family: 'Lucida Sans Regular', sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -49,6 +53,13 @@ table {
 }
 
 td, th {
+    font-family: 'Lucida Sans Regular';
     min-width: 150px;
     text-align: center;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
