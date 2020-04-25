@@ -2,12 +2,16 @@
 <head>
     <title>My Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    >
 </head>
 <body>
 <section>
     <h1>My Expense Tracker </h1>
-    <h2>Enter an expense to track: </h2>
+    <br>
+    <h4>Enter an expense to track: </h4>
     <form id="add-expense">
         <input type="text" id="addName" placeholder="Expense name">
         <input type="text" id="cost" placeholder="Cost">
@@ -15,22 +19,24 @@
         <button type="button" onclick="addItem();">Add Expense</button>
     </form>
     <br>
-    <h2>Enter an expense to remove: </h2>
+    <h4>Enter an expense to remove: </h4>
     <form id="delete-expense">
         <input type="text" id="deleteName" placeholder="Expense name">
         <button type="button" onclick="deleteItem();">Delete Expense</button>
     </form>
     <br>
-    <h2>Track my expenses: </h2>
+    <h4>Current expenses: </h4>
     <div class="content">
-        <table id="expenses-title">
-            <tr>
-                <th><h3>&#10240;Name </h3></th>
-                <th><h3>&#10240;Cost </h3></th>
-                <th><h3>&#10240;Category </h3></th>
-            </tr>
+        <table class="table" id="expenses-title">
+            <thead class= "thead-light">
+                <tr>
+                    <th><h5>Name </h5></th>
+                    <th><h5>Cost </h5></th>
+                    <th><h5>Category </h5></th>
+                </tr>
+            </thead>
         </table>
-        <table id="expenses-list">
+        <table class="table" id="expenses-list">
             
         </table>
     </div>

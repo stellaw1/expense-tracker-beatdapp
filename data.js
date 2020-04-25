@@ -65,9 +65,11 @@ function deleteItem() {
 
     localStorage.removeItem(expName);
 
-    const index = expArray.indexOf(expName);
-    if (index > -1) 
+    var index = expArray.indexOf(expName);
+    while (index > -1) {
         expArray.splice(index, 1);
+        index = expArray.indexOf(expName);
+    }
 
     displayData();
 }    

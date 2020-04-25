@@ -1,11 +1,12 @@
 
 html {
-    font-family: "Lato Regular", "Lato";
+    font-family: sans-serif;
 }
 
 body {
+    font-family: sans-serif;
     background: #CDCDCD;
-    background: radial-gradient(#ffffff, #e7e7e7dc);
+    background: #ffffff;
     min-width: 500px;
     color: #272525;
     padding-left: 10px;
@@ -15,7 +16,8 @@ body {
 
 h1, h2, h3, h4, h5, h6{
     line-height: 1.5;
-    margin: 1em 0 15px;
+    margin: auto;
+    text-align: center;
     padding: 0;
 }
 
@@ -26,11 +28,16 @@ h1{
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 20px;
+}
+
+table {
+    max-width: 800px;
+    margin: auto;
 }
 
 tr {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 td, th {
