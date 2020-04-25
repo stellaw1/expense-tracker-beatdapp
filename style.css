@@ -3,6 +3,7 @@ html {
     font-family: sans-serif;
     width: 80%;
     margin: auto;
+    padding-top: 12px;
 }
 
 body {
@@ -19,7 +20,7 @@ h1, h2, h3, h4, h5, h6{
 
 h1{
     font-weight: bold;
-    font-size: 32px;
+    font-size: 30px;
     text-decoration: underline;
     text-align: center;
 }
